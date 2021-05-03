@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		font-family:sans-serif;
+	}
+	.container{
+		height:100%;
+		width:100%;
+	}
+	.form_container{
+		width:380px;
+		height:480px;
+		position:relative;
+		margin:6% auto;
+		background:whitesmoke;
+		padding:5px;
+		overflow:hidden;
+	}
+	.btn_group{
+		width:220px;
+		margin:34px auto;
+		position:relative;
+		box-shadow:0 0 20px 9px darkcyan;
+		border-radius:30px;
+	}
+	.toggle_btn{
+		padding:10px 25px;
+		background:transparent;
+		border:0;
+		outline:none;
+		position:relative;
+		cursor:pointer;
+	}
+	#btn{
+		top:0;
+		left:0;
+		position:absolute;
+		width:110px;
+		height:100%;
+		background:linear-gradient(to right,white,blue,blue);
+		border-radius:30px;
+		transition:.5s;
+	}
+	.media_icons{
+		margin:30px auto;
+		text-align:center;
+	}
+	.media_icons img{
+		width:35px;
+		margin:0 12px;
+		box-shadow:0 0 10px 2px olivedrab;
+		cursor:pointer;
+		border-radius:50%;
+	}
+	.form_group{
+		top:180px;
+		position:absolute;
+		width:280px;
+		transition:.5s;
+	}
+	.input_area{
+		width:100%;
+		padding:10px 0;
+		margin:5px 0;
+		border:0;
+		border-bottom:1px solid blue;
+		outline:none;
+		background:transparent;
+	}
+	.check_box{
+		margin:30px 10px 30px 0;
+	}
+	span{
+		color:rgba(36,21,22);
+		font-size:14px;
+		bottom:65px;
+		position:absolute;
+	}
+	.sub_btn{
+		width:80%;
+		padding:10px 30px;
+		cursor:pointer;
+		display:block;
+		margin:auto;
+		background:linear-gradient(to right,white,blue,white);
+		border-radius:30px;
+		border:0;
+		outline:none;
+	}
+	#login{
+		left:50px;
+	}
+	#register{
+		left:500px;
+	}
+</style>
+<script>
+	/*making the button to switch between login and registration*/
+	
+	function login(){
+		document.getElementById("login").style.left = '50px';
+		document.getElementById("register").style.left = '500px';
+		document.getElementById("btn").style.left = '0px';
+	}
+	
+	function register(){
+		document.getElementById("login").style.left ='-450px';
+		document.getElementById("register").style.left ='50px';
+		document.getElementById("btn").style.left ='110px';
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="form_container">
+			<div class="btn_group">
+				<div id="btn"></div>
+				<button type="button" class="toggle_btn" onclick="login()">LOG IN</button>
+				<button type="button" class="toggle_btn" onclick="register()">REGISTER</button>
+			</div>
+			<div class="media_icons">
+				<img src="https://image.flaticon.com/icons/png/512/124/124010.png">
+				<img src="https://i.pinimg.com/736x/c8/95/2d/c8952d6e421a83d298a219edee783167.jpg">
+				<img src="data:image/png;base64,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">
+				<img src="https://i.pinimg.com/originals/31/23/9a/31239a2f70e4f8e4e3263fafb00ace1c.png">
+			</div>
+			<form id="login" class="form_group">
+				<input type="text" class="input_area" placeholder="UserName" required>
+				<input type="text" class="input_area" placeholder="Enter Password" required>
+				<input type="checkbox" class="check_box"><span>Remember Password</span>
+				<button type="submit" class="sub_btn">LOG IN</button>
+			</form>
+			<form id="register" class="form_group">
+				<input type="text" class="input_area" placeholder="UserName" required>
+				<input type="text" class="input_area" placeholder="Enter Email" required>
+				<input type="text" class="input_area" placeholder="Enter Password" required>
+				<input type="checkbox" class="check_box"><span>I agree with all the terms and conditions</span>
+				<button type="submit" class="sub_btn">REGISTER</button>
+		
+		</form>
+		</div>
+	</div>
+</body>
+</html>
